@@ -22,6 +22,9 @@ gem 'puma', '~> 3.11'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Auth
+gem 'devise_token_auth'
+
 # Adds graphql support
 gem 'graphql'
 gem "graphiql-rails"
