@@ -11,10 +11,10 @@ class Mutations::Auth::SignOutUser < Mutations::BaseMutation
   field :success, Boolean, null: true
 
   def resolve(uid:, client:)
-    user = User.find_by(email: uid)
-    if user && client && user.tokens[client]
-      user.tokens.delete(client)
-      user.save!
+    current_user = context[:current_user]
+    if current_user.email == uid && current_user.tokens[client].present?
+      current_user.tokens.delete(client)
+      current_user.save!
       RecursiveOpenStruct.new(success: true)
     else
       RecursiveOpenStruct.new(success: false)

@@ -17,6 +17,7 @@ class Mutations::Auth::ResetPassword < Mutations::BaseMutation
   field :errors, [String], null: true
 
   def resolve(**args)
+    current_user = context[:current_user]
     current_user.update(args)
     auth = current_user.create_new_auth_token
     {

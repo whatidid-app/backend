@@ -6,6 +6,7 @@ AllCops:
     - 'db/migrate/**'
     - 'config/**/*.rb'
     - 'bin/**'
+    - 'spec/**/*rb'
 Style/RegexpLiteral:
   EnforcedStyle: mixed
   AllowInnerSlashes: true
