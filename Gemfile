@@ -24,11 +24,13 @@ gem 'puma', '~> 3.11'
 
 # Auth
 gem 'devise_token_auth'
+gem 'pundit'
 
 # Adds graphql support
 gem 'graphql'
-gem "graphiql-rails"
-
+gem 'graphiql-rails'
+gem 'search_object', '1.2.1'
+gem 'search_object_graphql', '0.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

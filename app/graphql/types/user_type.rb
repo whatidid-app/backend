@@ -2,6 +2,7 @@
 
 class Types::UserType < Types::BaseObject
   description 'user type'
+
   field :id, ID, null: false
   field :name, String, null: true
   field :email, String, null: false

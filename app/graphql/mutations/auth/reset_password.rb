@@ -17,7 +17,7 @@ class Mutations::Auth::ResetPassword < Mutations::BaseMutation
   field :errors, [String], null: true
 
   def resolve(**args)
-    current_user = context[:current_user]
+    authorize current_user, :reset_password?
     current_user.update(args)
     auth = current_user.create_new_auth_token
     {
@@ -30,7 +30,7 @@ class Mutations::Auth::ResetPassword < Mutations::BaseMutation
     }
   rescue StandardError
     {
-      errors: current_user.errors.full_messages
+      errors: current_user&.errors&.full_messages
     }
   end
 end
