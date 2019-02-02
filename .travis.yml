@@ -1,10 +1,9 @@
 language: ruby
 rvm:
-- 2.6.0
+  - 2.6.0
 bundler_args: --jobs=2
 before_script:
   - psql -c 'create database whatidid_test;' -U postgres
-script:
 script:
   - bundle exec rake db:setup
   - bundle exec rake spec
@@ -12,4 +11,4 @@ cache: bundler
 services:
   - postgresql
 addons:
-  postgresql: "9.4"
+  postgresql: '9.4'
