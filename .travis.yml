@@ -13,7 +13,7 @@ script:
   - bundle exec rake db:setup
   - bundle exec rake spec
   - |
-    if: [ branch = master ]; then
+    if [ branch = master ]; then
       openssl aes-256-cbc -K $encrypted_078bb9a689d3_key -iv $encrypted_078bb9a689d3_iv
         -in .travis/deploy.key.enc -out deploy.key -d
       chmod +x ./deploy.sh
