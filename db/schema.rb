@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_02_05_050154) do
   create_table "teams", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", limit: 6, null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"

@@ -8,6 +8,8 @@ class Team < ApplicationRecord
 
   before_create :create_slug
 
+  enum status: { active: 0, archived: 1 }
+
   private
 
   def create_slug

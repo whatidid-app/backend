@@ -3,6 +3,7 @@ class CreateTeams < ActiveRecord::Migration[5.2]
     create_table :teams do |t|
       t.string   :name, null: false
       t.string   :slug, null: false, limit: 6
+      t.integer :status, null: false, default: 0
       t.timestamps
     end
 
