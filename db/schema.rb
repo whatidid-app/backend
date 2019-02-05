@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_05_050154) do
+ActiveRecord::Schema.define(version: 2019_02_05_053837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "invites", force: :cascade do |t|
+    t.string "token", limit: 16, null: false
+    t.string "email", null: false
+    t.boolean "redeemed", default: false, null: false
+    t.bigint "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_invites_on_deleted_at"
+    t.index ["team_id"], name: "index_invites_on_team_id"
+  end
 
   create_table "teams", force: :cascade do |t|
     t.string "name", null: false

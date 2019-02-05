@@ -3,6 +3,7 @@
 class Team < ApplicationRecord
   acts_as_paranoid
 
+  has_many :invites
   has_many :user_teams
   has_many :users, through: :user_teams
 
