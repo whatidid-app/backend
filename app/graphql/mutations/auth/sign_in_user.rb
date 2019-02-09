@@ -17,7 +17,7 @@ class Mutations::Auth::SignInUser < Mutations::BaseMutation
   field :errors, [String], null: true
 
   def resolve(email:, password:)
-    user = User.find_by(email: email)
+    user = User.where(email: email).first
 
     if user&.valid_password?(password)
       auth = user.create_new_auth_token
@@ -31,7 +31,7 @@ class Mutations::Auth::SignInUser < Mutations::BaseMutation
       }
     else
       {
-        errors: user.errors.full_messages
+        errors: ['Invalid Credentials']
       }
     end
   end

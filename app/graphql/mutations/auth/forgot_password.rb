@@ -13,9 +13,9 @@ class Mutations::Auth::ForgotPassword < Mutations::BaseMutation
 
     if user.present?
       user.send_reset_password_instructions
-      RecursiveOpenStruct.new(success: true)
+      { success: true }
     else
-      RecursiveOpenStruct.new(success: false, errors: ['No Email Found'])
+      { success: false, errors: ['No Email Found'] }
     end
   end
 end

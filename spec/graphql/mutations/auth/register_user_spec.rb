@@ -10,8 +10,19 @@ describe Mutations::Auth::RegisterUser do
     let(:password_confirmation) { 'sample_password' }
     let(:email) { 'guy@gmail.com' }
     let(:name) { 'Test Testerson' }
+    let(:team_name) { 'Test' }
 
-    subject { mutation.resolve(email: email, password: password, password_confirmation: password_confirmation, name: name) }
+    subject do
+      mutation.resolve(
+        email: email,
+        password: password,
+        password_confirmation: password_confirmation,
+        name: name,
+        teams_attributes: { 
+          name: team_name
+        }
+      ) 
+    end
 
     context 'with valid registration information' do
       it 'returns an access token' do

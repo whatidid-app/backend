@@ -15,9 +15,9 @@ class Mutations::Auth::SignOutUser < Mutations::BaseMutation
     if current_user.email == uid && current_user.tokens[client].present?
       current_user.tokens.delete(client)
       current_user.save!
-      RecursiveOpenStruct.new(success: true)
+      { success: true }
     else
-      RecursiveOpenStruct.new(success: false)
+      { success: false }
     end
   end
 end
