@@ -37,6 +37,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Soft Delete
 gem 'paranoia', '~> 2.2'
 
+# Temp mailing solution
+gem 'mailgun-ruby', '~>1.1.6'
+
+
 # Code Coverage
 gem 'codecov', :require => false, :group => :test
 
