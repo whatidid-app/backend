@@ -40,6 +40,8 @@ gem 'paranoia', '~> 2.2'
 # Code Coverage
 gem 'codecov', :require => false, :group => :test
 
+# Error Reporting
+gem "sentry-raven"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
